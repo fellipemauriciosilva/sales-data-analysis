@@ -13,22 +13,30 @@ import br.com.agibank.sale.service.ProcessSaleDataService;
 @Component
 public class SaleDataProcessor implements TopicProcessor<String> {
 
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	private ProcessSaleDataService service;
 	private final TopicProducer<String> salaDataReportProducer;
-	
+
 	@Autowired
 	public SaleDataProcessor(ProcessSaleDataService service, TopicProducer<String> salaDataReportProducer) {
 		this.service = service;
 		this.salaDataReportProducer = salaDataReportProducer;
 	}
-	
+
 	@Override
-	public void process(String data) throws Exception {
-        logger.info("Kafka Consumer >>> Processing! {}", data);
-		Report report = service.processAndValidate(data);
-		salaDataReportProducer.produce(report.toString());
-		GroupSale.closeInstance();
-        logger.info("Kafka consumer >>> Processed! {}", report.toString());
+	public void process(String data) {
+		
+		Report report = null;
+		
+		try {
+			logger.info("Kafka Consumer >>> Processing! {}", data);
+			report = service.processAndValidate(data);
+			salaDataReportProducer.produce(report.toString());
+		} catch (Exception e) {
+			logger.error("Kafka PROCESS_ERROR >>> Error :", e);
+		} finally {
+			GroupSale.closeInstance();
+			logger.info("Kafka consumer >>> Processed! {}", report.toString());
+		}
 	}
 }

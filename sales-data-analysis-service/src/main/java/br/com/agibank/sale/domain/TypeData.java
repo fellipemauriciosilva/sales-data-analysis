@@ -3,7 +3,7 @@ package br.com.agibank.sale.domain;
 public enum TypeData {
 
 	SELLER("001"),
-	CUSTOMER("SALES"),
+	CUSTOMER("002"),
 	SALES("003");
 	
 	private final String codeSplit;

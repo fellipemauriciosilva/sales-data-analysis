@@ -1,4 +1,4 @@
-package br.com.agibank.sale.config;
+package br.com.agibank.batch.config;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +13,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
-import br.com.agibank.sale.messaging.producer.TopicProducer;
+import br.com.agibank.batch.messaging.producer.TopicProducer;
 
 @Configuration
 public class KafkaProducerConfig {
@@ -45,7 +45,7 @@ public class KafkaProducerConfig {
     }
     
     @Bean
-    public TopicProducer<String> salaDataReportProducer(@Value("${spring.kafka.topic.sales.data.out}") String topic) {
+    public TopicProducer<String> salaDataReportProducer(@Value("${spring.kafka.topic.sales.data.in}") String topic) {
         return new TopicProducer<>(kafkaTemplate(), topic);
     }
     
