@@ -14,5 +14,5 @@ lotes de arquivos, ler e analisar os dados e produzir um relatório.
 - Spring Kafka
 
 ## Pré-requisitos
-- Java 11
+- Java 14
 - Maven
