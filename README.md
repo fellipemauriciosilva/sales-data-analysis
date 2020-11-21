@@ -7,7 +7,7 @@ Prova realizada para Agibank em que consiste em um sistema de analise de dados d
 lotes de arquivos, ler e analisar os dados e produzir um relatório.
 
 ## Arquitetura
-
+![alt text](https://github.com/fellipemauriciosilva/sales-data-analysis/blob/main/analysis-sale.jpg?raw=true)
 
 ## Tecnologias
 - Spring Batch
