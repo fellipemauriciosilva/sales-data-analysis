@@ -10,7 +10,7 @@ import lombok.ToString;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "cnpj")
+@EqualsAndHashCode
 @ToString
 @Builder
 public class Customer {

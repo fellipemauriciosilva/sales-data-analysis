@@ -10,19 +10,16 @@ import lombok.ToString;
 
 @Data
 @AllArgsConstructor
-@EqualsAndHashCode(of = "cpf")
+@EqualsAndHashCode
 @ToString
 @Builder
 public class Seller {
 
-	public Seller() {
-		salesAmount = new BigDecimal(0);
-	}
-
 	private String cpf;
 	private String name;
 	private BigDecimal salary;
-	private BigDecimal salesAmount;
+	@Builder.Default
+	private BigDecimal salesAmount = new BigDecimal(0);
 
 	public void addSalePrice(BigDecimal value) {
 		if (salesAmount == null)

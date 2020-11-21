@@ -47,6 +47,11 @@
 			<artifactId>spring-kafka-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+    		<scope>test</scope>            
+        </dependency>		
 		
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -57,7 +62,7 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-		</dependency>
+		</dependency>	
 
 	</dependencies>
 

@@ -11,7 +11,7 @@ import lombok.ToString;
 
 @Data
 @AllArgsConstructor
-@EqualsAndHashCode(of = "id")
+@EqualsAndHashCode
 @ToString
 @Builder
 public class SaleItem {
